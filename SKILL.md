@@ -5,7 +5,7 @@ description: |
   职业 Skill 规划器。用户输入一个职业名称，输出该职业的核心工作流分解，以及每个工作流对应的 Skill 制作指南（用户需要提供什么、可直接使用的提示词、实现逻辑）。用户可以把每条提示词直接发给 Agent 来制作对应的 Skill。
   触发场景：用户说"帮我规划 XX 职业的 Skill"、"我是 XX，帮我拆 Skill"、"XX 职业需要哪些 Skill"、"帮我生成 XX 的 Skill 提纲"、"职业 Skill"。
   也适用于：用户说"我是设计师/工程师/运营/销售/律师/教师，怎么用 AI 提效"，或者用户发来一段职位描述（JD）要求据此规划 Skill。
-  兼容性：Claude Code 2.0+ (Sonnet 4.6 / Opus 4.7 推荐)
+  兼容性：Claude Code 2.0+ (step-3.7-flash)
 ---
 
 # Career Skill Planner v1.0
@@ -47,11 +47,9 @@ description: |
 
 | 模型 | 适用场景 | 推荐度 |
 |------|---------|-------|
-| Claude Sonnet 4.6 | 日常规划、模板生成 | ⭐⭐⭐⭐⭐ |
-| Claude Opus 4.7 | 复杂职业分析、深度拆解 | ⭐⭐⭐⭐⭐ |
-| Claude Haiku 4.5 | 简单职业的快速规划 | ⭐⭐⭐⭐ |
+| step-3.7-flash（StepFun） | 当前唯一可用模型，适用于所有场景 |
 
-**注意**：使用 Haiku 时，复杂职业（如律师、医生）的分析深度可能不足，建议切换到 Sonnet 或 Opus。
+**注意**：当前仅使用 step-3.7-flash 一个模型，所有场景统一使用该模型。
 
 ---
 
