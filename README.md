@@ -218,6 +218,46 @@ cp templates/product-manager/prd-writer.md ~/.claude/skills/prd-writer/SKILL.md
 
 所有关键测试通过 ✅
 
+## 外部平台热门技能推荐
+
+除本项目 curated 的 Skill 模板外，我们还从 5 个主流技能平台综合评选热门技能，按需补充。
+
+### 推荐逻辑
+
+1. **综合 5 个平台的 stars/下载量**，按权重排序：SkillsMP（Occupation 分类+数据量最大）> Skills.sh（安装量最真实）> ClawHub（社区活跃）> SkillHub.club（中文友好）> SkillHub.cn
+2. **推荐数量**：每个职业额外推荐 **2-3 个**外部技能，不要太多，避免 overwhelm
+3. **推荐理由**：每个技能说明为什么值得装、解决什么痛点
+4. **使用建议**：标注必装/推荐/按需优先级
+
+### 技能优先级
+
+| 级别 | 含义 | 数量 |
+|------|------|------|
+| Level 1 必装 | 最高 stars/安装量，先装先用 | 1 个 |
+| Level 2 推荐 | 特定场景增强，按需装 | 1-2 个 |
+| Level 3 可选 | 非常用场景，感兴趣再装 | 0-1 个 |
+
+### 各职业推荐速查
+
+| 职业 | Level 1 | Level 2 | Level 3 |
+|------|---------|---------|---------|
+| 产品经理 | product-manager-toolkit（SkillsMP 38.5k ⭐）— 产品经理全能工具箱 | PM Toolkit（ClawHub 4.1k ⭐）+ prd-generator（SkillHub.club） | — |
+| 前端工程师 | frontend-design（SkillsMP 125.9k ⭐）— 前端设计最佳实践 | frontend-engineer（SkillsMP 29.3k ⭐）+ React 最佳实践（SkillsMP 27k ⭐） | ui-ux-pro-max（Skills.sh 192K installs） |
+| UI 设计师 | ui-ux-pro-max（SkillsMP 79.7k ⭐）— UI/UX 设计专业工具 | frontend-design（SkillsMP 125.9k ⭐）+ design-system（ClawHub） | — |
+| 内容运营 | content-ops-knowledge-builder（SkillsMP 1.4k ⭐）— 内容运营知识库构建 | SEO 优化 + 文案辅助（SkillHub.club） | — |
+
+### 平台信息
+
+| 平台 | 定位 | 技能规模 | 排序方式 | 链接 |
+|------|------|---------|---------|------|
+| SkillsMP | 聚合 GitHub 152万+ SKILL.md | 152万+ | Stars / 最新 | https://skillsmp.com/ |
+| Skills.sh | Vercel 出品 Agent Skills 生态 | 614K+ | 安装量/趋势/热度 | https://skills.sh |
+| ClawHub | 社区驱动技能市场（OpenClaw 生态） | 66.9K | Featured/下载量/Stars | https://clawhub.ai/ |
+| SkillHub.club | 中文 Claude Skills 社区 | 87.6K | 热榜/评分/下载量 | https://www.skillhub.club/ |
+| SkillHub.cn | 国内访问友好的 Skills 社区 | 7.7万 | 推荐/下载热榜/上新 | https://skillhub.cn/ |
+
+> **推荐访问顺序**：SkillsMP（数据最全，按 Occupation 筛选）→ Skills.sh（安装量最真实）→ ClawHub（社区活跃）→ SkillHub.club（中文友好）→ SkillHub.cn（国内友好）
+
 ---
 
 ## 目录结构
@@ -239,10 +279,11 @@ career-skill-planner/
 │   ├── content-ops-example.md
 │   └── frontend-engineer-example.md
 ├── test/
-│   └── smoke-test.sh            # 端到端冒烟测试
+│   ├── smoke-test.sh            # 快速检查
+│   └── comprehensive-test.py    # 全面验证（671 项检查）
 └── .github/
-    └── workflows/
-        └── ci.yml               # GitHub Actions CI
+    ├── workflows/ci.yml         # GitHub Actions CI
+    └── ISSUE_TEMPLATE/          # Issue 模板
 ```
 
 ---
