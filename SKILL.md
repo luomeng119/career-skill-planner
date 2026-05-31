@@ -262,6 +262,72 @@ description: |
 
 ---
 
+## 外部平台热门技能推荐
+
+在输出完内部 Skill 清单后，额外推荐以下平台上的热门技能，作为补充：
+
+### 推荐逻辑
+
+1. **综合 5 个平台的 stars/下载量**，按权重排序：SkillsMP（Occupation 分类+数据量最大）> Skills.sh（安装量最真实）> ClawHub（社区活跃）> SkillHub.club（中文友好）> SkillHub.cn
+2. **推荐数量**：每个职业额外推荐 **2-3 个**外部技能，不要太多，避免 overwhelm
+3. **推荐理由**：每个技能说明为什么值得装、解决什么痛点
+4. **使用建议**：标注必装/推荐/按需优先级
+
+### 推荐格式
+
+```
+### 外部平台热门技能推荐
+
+以下技能来自社区平台，按 stars/下载量综合排名：
+
+#### Level 1 — 必装（先装先用）
+| 技能 | 平台 | Stars/安装量 | 推荐理由 |
+|------|------|-------------|----------|
+| xxx | SkillsMP | 38.5k ⭐ | 一句话理由 |
+
+#### Level 2 — 推荐（按需安装）
+| 技能 | 平台 | Stars/安装量 | 推荐理由 |
+|------|------|-------------|----------|
+| xxx | Skills.sh | 482K installs | 一句话理由 |
+
+#### Level 3 — 可选（特定场景）
+| 技能 | 平台 | Stars/安装量 | 推荐理由 |
+|------|------|-------------|----------|
+| xxx | ClawHub | 5.1k ⭐ | 一句话理由 |
+```
+
+### 各职业推荐速查
+
+**产品经理**：
+- Level 1: product-manager-toolkit（SkillsMP 38.5k ⭐）— 产品经理全能工具箱
+- Level 2: Product Manager Toolkit（ClawHub 4.1k ⭐）— PRD/用户故事/路线图
+- Level 2: prd-generator（SkillHub.club）— 快速生成 PRD 文档
+
+**前端工程师**：
+- Level 1: frontend-design（SkillsMP 125.9k ⭐）— 前端设计最佳实践
+- Level 1: frontend-engineer（SkillsMP 29.3k ⭐）— 前端工程师核心技能
+- Level 2: vercel-react-best-practices（SkillsMP 27k ⭐）— React 最佳实践
+- Level 2: ui-ux-pro-max（Skills.sh 192.3K installs）— UI/UX 设计辅助
+
+**UI 设计师**：
+- Level 1: ui-ux-pro-max（SkillsMP 79.7k ⭐）— UI/UX 设计专业工具
+- Level 2: frontend-design（SkillsMP 125.9k ⭐）— 设计到开发的桥梁
+- Level 2: design-system（ClawHub）— 设计系统管理
+
+**内容运营**：
+- Level 1: content-operations-knowledge-builder（SkillsMP 1.4k ⭐）— 内容运营知识库构建
+- Level 2: seo-optimizer（SkillHub.club）— SEO 优化辅助
+- Level 2: copywriting-assistant（SkillHub.club）— 文案撰写辅助
+
+> 注：外部平台技能会持续更新，建议定期访问以下平台获取最新热门技能：
+> - SkillsMP: https://skillsmp.com/ （数据最全，按 Occupation 筛选）
+> - Skills.sh: https://skills.sh/ （安装量最真实）
+> - ClawHub: https://clawhub.ai/ （社区活跃）
+> - SkillHub.club: https://www.skillhub.club/ （中文友好）
+> - SkillHub.cn: https://skillhub.cn/ （国内访问友好）
+
+---
+
 ## 质量检查
 
 输出前自查：
