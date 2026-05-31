@@ -24,7 +24,20 @@
 - 原版 SKILL.md 增加版本号字段和兼容性说明
 - 分析框架从 5 个维度扩展到 6 个（新增"行业工具链"维度）
 - 输出格式增加"推荐工具/技术栈"字段
+- 模型信息修正为 step-3.7-flash（移除 Sonnet/Opus/Haiku 引用）
+- README 增加 Mermaid 工作流程图（含外部平台推荐步骤）
+- README 章节重排序（防呆说明/目录结构提前，删除重复章节）
+- README 增加外部平台热门技能推荐章节（5 平台综合排名）
+- SKILL.md 增加外部平台热门技能推荐机制（Level 1/2/3 分级）
+
+### Added (后续迭代)
+- 全面验证脚本（test/comprehensive-test.py，671 项检查）
+- Workflow 端到端测试（career-skill-planner-e2e-test）
+- 档案AI共学社署名（README + SKILL.md + 页脚）
+- Claude Code 版本细化（2.0+/2.0/1.1.x/1.0.x 四级）
+- 模型推荐表（step-3.7-flash 唯一模型说明）
 
 ### Credits
 - 方法论基于 [zephyrwang6/career.skill](https://github.com/zephyrwang6/career.skill)
 - 感谢原项目开创了"按职业拆解 Skill"的方法论
+- 维护者：[档案AI共学社](https://github.com/luomeng119)
