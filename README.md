@@ -78,13 +78,23 @@ flowchart TD
     J --> K[保留5-8个场景]
     K --> L[为每个场景生成Skill制作指南]
     L --> M[输出完整Skill清单]
-    M --> N[用户复制提示词发给Agent]
+    M --> M1[⭐ 内部 Skill 清单]
+    M --> M2[外部平台热门技能推荐]
+    
+    M1 --> N[用户复制提示词发给Agent]
     N --> O[生成Skill文件并安装]
     O --> P[使用Skill提效工作]
+    
+    M2 --> Q[综合5平台Stars/下载量]
+    Q --> R[Level 1 必装]
+    Q --> S[Level 2 推荐]
+    Q --> T[Level 3 可选]
     
     style A fill:#e1f5ff
     style P fill:#d4edda
     style O fill:#fff3cd
+    style Q fill:#fff3cd
+    style R fill:#d4edda
 ```
 
 ---
@@ -141,6 +151,44 @@ cp templates/product-manager/prd-writer.md ~/.claude/skills/prd-writer/SKILL.md
 
 ```
 我是临床医生，帮我拆 Skill
+```
+
+---
+
+## 防呆说明
+
+输入不完整没关系，Skill 会自动处理：
+
+- **职业名称清晰**（"财务分析师"、"UI 设计师"）→ 直接输出清单
+- **职业名称过于宽泛**（"运营"、"总监"、"分析师"）→ 给你一道选择题，选完立刻输出
+- **完全不知道怎么描述**（"我工作比较杂"）→ 给你一个三行填空，填完输出
+
+---
+
+## 目录结构
+
+```
+career-skill-planner/
+├── README.md                    # 本文件
+├── SKILL.md                     # 核心：职业 Skill 规划器
+├── CHANGELOG.md                 # 版本变更日志
+├── CONTRIBUTING.md              # 贡献指南
+├── templates/                   # 按职业分类的 Skill 模板库
+│   ├── product-manager/         # 产品经理 13 个
+│   ├── ui-designer/             # UI 设计师 6 个
+│   ├── content-ops/             # 内容运营 6 个
+│   └── frontend-engineer/       # 前端工程师 8 个
+├── examples/                    # 各职业完整输出示例
+│   ├── product-manager-example.md
+│   ├── ui-designer-example.md
+│   ├── content-ops-example.md
+│   └── frontend-engineer-example.md
+├── test/
+│   ├── smoke-test.sh            # 快速检查
+│   └── comprehensive-test.py    # 全面验证（671 项检查）
+└── .github/
+    ├── workflows/ci.yml         # GitHub Actions CI
+    └── ISSUE_TEMPLATE/          # Issue 模板
 ```
 
 ---
@@ -257,44 +305,6 @@ cp templates/product-manager/prd-writer.md ~/.claude/skills/prd-writer/SKILL.md
 | SkillHub.cn | 国内访问友好的 Skills 社区 | 7.7万 | 推荐/下载热榜/上新 | https://skillhub.cn/ |
 
 > **推荐访问顺序**：SkillsMP（数据最全，按 Occupation 筛选）→ Skills.sh（安装量最真实）→ ClawHub（社区活跃）→ SkillHub.club（中文友好）→ SkillHub.cn（国内友好）
-
----
-
-## 目录结构
-
-```
-career-skill-planner/
-├── README.md                    # 本文件
-├── SKILL.md                     # 核心：职业 Skill 规划器
-├── CHANGELOG.md                 # 版本变更日志
-├── CONTRIBUTING.md              # 贡献指南
-├── templates/                   # 按职业分类的 Skill 模板库
-│   ├── product-manager/         # 产品经理 13 个
-│   ├── ui-designer/             # UI 设计师 6 个
-│   ├── content-ops/             # 内容运营 6 个
-│   └── frontend-engineer/       # 前端工程师 8 个
-├── examples/                    # 各职业完整输出示例
-│   ├── product-manager-example.md
-│   ├── ui-designer-example.md
-│   ├── content-ops-example.md
-│   └── frontend-engineer-example.md
-├── test/
-│   ├── smoke-test.sh            # 快速检查
-│   └── comprehensive-test.py    # 全面验证（671 项检查）
-└── .github/
-    ├── workflows/ci.yml         # GitHub Actions CI
-    └── ISSUE_TEMPLATE/          # Issue 模板
-```
-
----
-
-## 防呆说明
-
-输入不完整没关系，Skill 会自动处理：
-
-- **职业名称清晰**（"财务分析师"、"UI 设计师"）→ 直接输出清单
-- **职业名称过于宽泛**（"运营"、"总监"、"分析师"）→ 给你一道选择题，选完立刻输出
-- **完全不知道怎么描述**（"我工作比较杂"）→ 给你一个三行填空，填完输出
 
 ---
 
