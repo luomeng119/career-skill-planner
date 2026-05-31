@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  smoke-test:
+    name: Skill Template Smoke Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run smoke tests
+        run: bash test/smoke-test.sh templates
+
+  validate-skills:
+    name: Validate Core SKILL.md
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check SKILL.md has required frontmatter
+        run: |
+          head -5 SKILL.md | grep -q "name: career-skill-planner" || (echo "Missing name field" && exit 1)
+          head -5 SKILL.md | grep -q "version:" || (echo "Missing version field" && exit 1)
+          head -5 SKILL.md | grep -q "description:" || (echo "Missing description field" && exit 1)
+          echo "SKILL.md frontmatter valid"
+
+      - name: Check README has attribution
+        run: |
+          grep -q "zephyrwang6" README.md || (echo "Missing attribution to original project" && exit 1)
+          grep -q "career.skill" README.md || (echo "Missing link to original project" && exit 1)
+          echo "README attribution valid"
+
+      - name: Count templates
+        run: |
+          TOTAL=$(find templates -name "*.md" | wc -l)
+          echo "Total templates: $TOTAL"
+          if [ "$TOTAL" -lt 5 ]; then
+            echo "Warning: fewer than 5 templates found"
+          fi
+
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v21
+        with:
+          config: .markdownlint.json
+          globs: '**/*.md'
