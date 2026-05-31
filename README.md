@@ -40,6 +40,53 @@
 
 感谢 [zephyrwang6](https://github.com/zephyrwang6) 开创了这个方法论。
 
+本项目由 [档案AI共学社](https://github.com/luomeng119) 维护和扩展。
+
+---
+
+## 工作流程图
+
+```mermaid
+flowchart TD
+    A[用户输入职业名称] --> B{输入分级判断}
+    B -->|L1 明确| C[直接分析输出]
+    B -->|L2 宽泛| D[问一个定向问题]
+    D --> E[等待用户回答]
+    E --> C
+    B -->|L3 不清楚| F[给引导填空模板]
+    F --> G[等待用户填写]
+    G --> C
+    E -->|不配合| H[兜底策略]
+    G -->|不配合| H
+    H --> C
+    
+    C --> I[6维度分析框架]
+    I --> I1[1.高频输出物]
+    I --> I2[2.反复判断场景]
+    I --> I3[3.易漏检查项]
+    I --> I4[4.跨系统整合]
+    I --> I5[5.结构化输出]
+    I --> I6[6.行业工具链]
+    
+    I1 --> J[过滤:重复+标准输出+AI可执行]
+    I2 --> J
+    I3 --> J
+    I4 --> J
+    I5 --> J
+    I6 --> J
+    
+    J --> K[保留5-8个场景]
+    K --> L[为每个场景生成Skill制作指南]
+    L --> M[输出完整Skill清单]
+    M --> N[用户复制提示词发给Agent]
+    N --> O[生成Skill文件并安装]
+    O --> P[使用Skill提效工作]
+    
+    style A fill:#e1f5ff
+    style P fill:#d4edda
+    style O fill:#fff3cd
+```
+
 ---
 
 ## 快速开始
@@ -171,12 +218,20 @@ career-skill-planner/
 
 ## 与 Claude Code 的兼容性
 
-| Claude Code 版本 | 兼容状态 |
-|-----------------|---------|
-| 2.0+ | ✅ 完全兼容 |
-| 1.x | ⚠️ 部分兼容（部分高级功能不可用） |
+| Claude Code 版本 | 兼容状态 | 备注 |
+|-----------------|---------|------|
+| 2.0+ (最新版) | ✅ 完全兼容 | 推荐使用，支持全部特性 |
+| 2.0 (早期) | ✅ 完全兼容 | 功能完整 |
+| 1.1.x | ⚠️ 部分兼容 | Skill 基础功能可用，部分高级特性（如 frontmatter 版本号）不可用 |
+| 1.0.x | ❌ 不兼容 | 不支持 YAML frontmatter |
 
-推荐使用最新版本的 Claude Code 以获得最佳体验。
+**推荐模型搭配**：
+
+| 模型 | 适用场景 | 推荐度 |
+|------|---------|-------|
+| Sonnet 4.6 | 日常规划、模板生成 | ⭐⭐⭐⭐⭐ |
+| Opus 4.7 | 复杂职业分析、深度拆解 | ⭐⭐⭐⭐⭐ |
+| Haiku 4.5 | 简单职业的快速规划 | ⭐⭐⭐⭐ |
 
 ---
 
@@ -204,4 +259,4 @@ MIT — 自由使用、修改和分发。
 
 ---
 
-made with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) · 基于 [zephyrwang6/career.skill](https://github.com/zephyrwang6/career.skill) 扩展
+made with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) · 基于 [zephyrwang6/career.skill](https://github.com/zephyrwang6/career.skill) 扩展 · 由 [档案AI共学社](https://github.com/luomeng119) 维护

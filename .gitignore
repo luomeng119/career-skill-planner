@@ -13,8 +13,8 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Claude Code local
-.claude/settings.local.json
+# Test artifacts
+report.json
 
 # OMC state
 .omc/

@@ -43,7 +43,27 @@ jobs:
             echo "Warning: fewer than 5 templates found"
           fi
 
-  markdown-lint:
+  comprehensive-test:
+    name: Comprehensive Template Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run comprehensive tests
+        run: python3 test/comprehensive-test.py
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: test/report.json
+      - name: Check for failures
+        run: |
+          FAILURES=$(python3 -c "import json; r=json.load(open('test/report.json')); print(r['summary']['failed'])")
+          if [ "$FAILURES" -gt 0 ]; then
+            echo "❌ $FAILURES 项检查失败"
+            exit 1
+          fi
+          echo "✅ 所有关键检查通过"
     name: Markdown Lint
     runs-on: ubuntu-latest
     steps:
